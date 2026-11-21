@@ -1,0 +1,46 @@
+Training: Majority baseline
+Training: Developer background (LR)
+Training: AI usage (LR)
+Training: Combined (LR)
+Training: Combined (RF)
+
+========== RESULTS ==========
+                     Model  Train n  Holdout n  CV macro-F1 mean  CV macro-F1 SD  Holdout macro-F1  Holdout balanced accuracy  Holdout accuracy  Bootstrap CI lower  Bootstrap CI upper
+        Majority baseline    11384       2846            0.1303          0.0000            0.1302                     0.2000            0.4828              0.1266              0.1338
+Developer background (LR)    11384       2846            0.1855          0.0044            0.1907                     0.2614            0.1897              0.1756              0.2053
+            AI usage (LR)    11384       2846            0.2600          0.0085            0.2815                     0.3527            0.2973              0.2654              0.2972
+            Combined (LR)    11384       2846            0.2711          0.0041            0.2735                     0.3443            0.2765              0.2563              0.2908
+            Combined (RF)    11384       2846            0.2767          0.0014            0.2886                     0.3509            0.3011              0.2737              0.3074
+
+Trust n: 14230 
+ trust_label
+Distrust most tasks    1754
+Low-risk only          2326
+Trust if verifiable    6872
+Many, not critical     2329
+Including critical      949
+
+Experience
+ Experience band    n  Verifiable trust n  Verifiable trust %  95% CI lower %  95% CI upper %  Critical-decision trust n  Critical-decision trust %
+      0–2 years 1537                 684               44.50           42.03           47.00                         76                       4.94
+      3–5 years 1697                 831               48.97           46.60           51.35                         70                       4.12
+     6–10 years 2591                1205               46.51           44.59           48.43                        146                       5.63
+    11–20 years 4230                2043               48.30           46.79           49.80                        300                       7.09
+      21+ years 3607                1861               51.59           49.96           53.22                        323                       8.95
+
+Experience chi-square 144.75723479960038 8.408025812776418e-23 Cramers V 0.05146749169053174
+
+Permutation importance
+        Predictor  Mean macro-F1 drop  SD macro-F1 drop
+         AIDaily              0.0621            0.0059
+        AIFreq_4              0.0125            0.0023
+ Uses chat tools              0.0118            0.0035
+         OrgSize              0.0108            0.0037
+Uses internal AI              0.0094            0.0044
+        AIFreq_2              0.0086            0.0030
+          ICorPM              0.0073            0.0027
+             Age              0.0071            0.0085
+        AIFreq_3              0.0068            0.0031
+        AIFreq_1              0.0064            0.0051
+
+Files saved to /mnt/data/PX27_Executed_ML_Results

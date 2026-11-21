@@ -1,0 +1,56 @@
+{
+  "input_dataset": "Stack Overflow Developer Survey 2026, public respondent-level CSV",
+  "source_url": "https://github.com/StackExchange/Survey/tree/main/packages/archive/2026",
+  "dataset_rows": 30903,
+  "trust_answers_total": 14304,
+  "eligible_five_class_rows": 14230,
+  "outcome_question": "How much do you trust the output from AI tools or AI agents as part of your workflow?",
+  "outcome_classes": {
+    "Distrust most tasks": 1754,
+    "Low-risk only": 2326,
+    "Trust if verifiable": 6872,
+    "Many, not critical": 2329,
+    "Including critical": 949
+  },
+  "exclusion": "Not sure / I do not use AI tools and unanswered trust question",
+  "random_seed": 42,
+  "train_test": "80/20 stratified respondent-level split",
+  "cv": "3-fold stratified CV on training portion only",
+  "predictors": [
+    "WorkExp",
+    "Age",
+    "CodeMain",
+    "Employment",
+    "Role",
+    "ICorPM",
+    "OrgSize",
+    "AIFreq_1",
+    "AIFreq_2",
+    "AIFreq_3",
+    "AIFreq_4",
+    "AIDaily",
+    "Uses coding assistants",
+    "Uses chat tools",
+    "Uses agents/workflows",
+    "Uses internal AI"
+  ],
+  "feature_scope": "Predeclared developer background and reported AI usage, excluding post-outcome trust/sentiment/verification answers",
+  "primary_metric": "macro-F1 on untouched test set",
+  "uncertainty": "400 test-set bootstrap replicates for macro-F1 intervals",
+  "experience_association": {
+    "chi2": 144.75723479960038,
+    "df": 16,
+    "p": 8.408025812776418e-23,
+    "cramers_v": 0.05146749169053174,
+    "n": 13662
+  },
+  "permutation_model": "Combined (LR)",
+  "limits": [
+    "self-selected, cross-sectional sample",
+    "self-reported trust, not observed correctness or programming skill",
+    "unadjusted experience group comparisons may be confounded",
+    "model selection and importance are exploratory",
+    "survey skip-logic and missingness may influence prediction",
+    "prediction does not establish causality"
+  ]
+}
