@@ -39,6 +39,8 @@ A separate experience-group analysis found a **small association** between profe
 
 ## Figures
 
+**Paper figures:** Literature evidence map (Figure 1), trust by experience (Figure 2), model comparison (Figure 3), predictor importance (Figure 4), and matched programming-task satisfaction (Figure 5).
+
 | Figure | Explanation |
 | --- | --- |
 | ![Trust by years of experience](figures/Figure_2_Trust_by_Experience.png) | Descriptive conditional-trust proportions and confidence intervals |
@@ -80,6 +82,8 @@ requirements.txt
 .gitignore
 src/
   run_analysis.py
+  programming_task_satisfaction.py
+  skill_concerns_analysis.py
 results/
   Table_Model_Results.csv
   Table_Developer_Only_Sensitivity.csv
@@ -89,12 +93,54 @@ results/
   Table_Confusion_Matrix_Combined_LR.csv
   *_classification.csv
   Run_Metadata.json
+  Table_Programming_Task_Satisfaction.csv
+  Table_Paired_Programming_Task_Contrasts.csv
+  Table_Skill_Concerns_By_Experience.csv
   Execution_Log.txt
 figures/
   Figure_2_Trust_by_Experience.png
   Figure_3_ML_Comparison.png
   Figure_4_Predictor_Importance.png
+  Figure_1_Evidence_Map_ACM.png
+  Figure_5_Programming_Tasks_Paired.png
 ```
+
+## Additional PX/27 programming-experience analyses (November 2026)
+
+The companion paper adds a **matched, task-level analysis** of developers whose main job involves writing code. Three AI-satisfaction items were compared **within the same respondents**, avoiding differences caused by using separate participant groups. The survey measures changes in **self-reported satisfaction**, not objective speed, learning or skill loss.
+
+### Task-specific findings
+
+Among **9,448 code-primary respondents** who answered all three relevant questions:
+
+| Development activity | Reported improved satisfaction |
+| --- | ---: |
+| Debugging / refactoring | **66.6%** (6,292 / 9,448) |
+| Implementation | 59.9% (5,659 / 9,448) |
+| Code review | 55.0% (5,198 / 9,448) |
+
+* Matched debugging minus implementation difference: **6.7 percentage points** (approximate 95% CI **5.7–7.7**).
+* Matched debugging minus code-review difference: **11.6 percentage points** (approximate 95% CI **10.5–12.6**).
+* Both comparisons had exact paired-discordance test p-values below 0.001. For the full set of **11,634** respondents who completed all three items, the corresponding differences were **5.8** and **10.7** points.
+
+The code-primary results appear in `results/Table_Programming_Task_Satisfaction.csv` and `results/Table_Paired_Programming_Task_Contrasts.csv` and the paper's Figure 5 is `figures/Figure_5_Programming_Tasks_Paired.png`.
+
+### Professional skill/replacement concern
+
+The 2026 `AIAvoid` response category **“Concern over losing job skills or training an AI to replace you”** was reported by **28.9%** of eligible code-primary respondents with 0–2 years of professional experience versus **9.7%** with 21+ years. This is a selected **concern**, not evidence that any respondent's programming skills declined. The response item combines two motivations that cannot be separated using this item. The complete five-band table is `results/Table_Skill_Concerns_By_Experience.csv`.
+
+### Reproduce the additional analyses
+
+Use the **same official dataset** described above. Place it locally at `data/survey_results_public.csv`; `data/` is ignored by Git.
+
+```bash
+python src/programming_task_satisfaction.py data/survey_results_public.csv --output outputs/programming_tasks
+python src/skill_concerns_analysis.py data/survey_results_public.csv --output outputs/skill_concerns.csv
+```
+
+The first command produces a reproduced Figure 5 and the two matched-task CSVs. The second produces the skill-concern CSV. The checked-in Figure 5 preserves the exact image used in the manuscript; a regenerated figure may differ slightly in typographic styling. Script results reproduce the same underlying percentages and comparisons.
+
+The reproducibility files do **not** contain the original participant-level dataset, personal responses, or a trained classifier pickle. All numeric results come from public respondent-level records. The additional Figure 1 file shows the manuscript's **qualitative evidence map**; it is a research-synthesis diagram rather than a statistical plot.
 
 ## Limitations
 

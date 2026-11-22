@@ -1,0 +1,7 @@
+group,task,respondents,improved_count,improved_pct
+code_primary,Debugging / refactoring,9448,6292,66.5961049957663
+code_primary,Implementation,9448,5659,59.896274343776454
+code_primary,Code review,9448,5198,55.01693480101609
+all_respondents,Debugging / refactoring,11634,7658,65.82430806257521
+all_respondents,Implementation,11634,6985,60.039539281416545
+all_respondents,Code review,11634,6414,55.13151108818979

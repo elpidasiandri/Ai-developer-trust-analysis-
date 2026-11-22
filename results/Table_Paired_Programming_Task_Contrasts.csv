@@ -1,0 +1,5 @@
+group,comparison,respondents,difference_pp,ci95_lower_pp,ci95_upper_pp,discordant_pairs,debugging_only_improved,exact_binomial_p
+code_primary,Debugging / refactoring vs Implementation,9448,6.699830651989839,5.674498761781218,7.72516254219846,2485,1559,3.213469020098016e-37
+code_primary,Debugging / refactoring vs Code review,9448,11.579170194750212,10.53909820616613,12.619242183334293,2640,1867,1.9524724445941525e-103
+all_respondents,Debugging / refactoring vs Implementation,11634,5.784768781158673,4.8567465739986755,6.712790988318671,3073,1873,4.424902882361135e-34
+all_respondents,Debugging / refactoring vs Code review,11634,10.692796974385423,9.755202605108845,11.630391343662001,3230,2237,9.148177922039666e-109
