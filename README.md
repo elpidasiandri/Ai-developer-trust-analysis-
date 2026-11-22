@@ -1,4 +1,5 @@
-# AI Developer Trust Analysis
+# Beyond Code Generation: Task-Specific Experiences, Trust, and Skill Concerns in AI-Assisted Programming
+ Copy
 
 **Reproducible machine-learning analysis of the Stack Overflow Developer Survey 2026**  
 Research companion to the manuscript *Beyond Code Generation: How AI Coding Assistants Reshape Programming Experience, Understanding, and Developer Autonomy* (prepared for PX/27).
